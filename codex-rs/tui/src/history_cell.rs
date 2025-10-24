@@ -1537,10 +1537,7 @@ mod tests {
         );
         let rendered = render_lines(&cell.display_lines(120)).join("\n");
 
-        assert!(rendered.contains("Env: TOKEN=*****"));
-        assert!(rendered.contains("APP_TOKEN=*****"));
-        assert!(rendered.contains("HTTP headers: Authorization=*****"));
-        assert!(rendered.contains("Env HTTP headers: X-API-Key=*****"));
+        insta::assert_snapshot!(rendered);
     }
 
     #[test]
